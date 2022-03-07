@@ -17,8 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 
 budget_api_path = path("api/budget/", include('budget.urls'))
+users_api_path = path("api/users/", include('users.urls'))
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    budget_api_path
+    budget_api_path,
+    users_api_path
 ]
