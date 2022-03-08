@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 
 class Budget(models.Model):
@@ -22,6 +23,7 @@ class Expense(models.Model):
     name = models.CharField(max_length=120)
     description = models.TextField()
     value = models.IntegerField(default=0)
+
     budget = models.ForeignKey(Budget,
                                related_name='expenses',
                                null=True, blank=True,
@@ -32,6 +34,8 @@ class Expense(models.Model):
                                  null=True, blank=True,
                                  verbose_name='Expense category',
                                  on_delete=models.SET_NULL)
+    date_added = models.DateTimeField(auto_now_add=True)
+    date_modified = models.DateTimeField(auto_now=True)
 
     def _str_(self):
         return f"{self.name} {self.value}"
@@ -51,6 +55,9 @@ class Income(models.Model):
                                  null=True, blank=True,
                                  verbose_name='Income category',
                                  on_delete=models.SET_NULL)
+    date_added = models.DateTimeField(auto_now_add=True)
+    date_modified = models.DateTimeField(auto_now=True)
+
 
     def _str_(self):
         return f"{self.name} {self.value}"
