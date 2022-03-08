@@ -16,3 +16,35 @@ class BudgetFilterSet(filters.FilterSet):
             'name',
             'description',
         ]
+
+
+class ExpenseFilterSet(filters.FilterSet):
+    strict = True
+
+    class Meta:
+        model = Expense
+        fields = [
+            'name',
+            'description',
+        ]
+
+
+class IncomeFilterSet(filters.FilterSet):
+    strict = True
+
+    class Meta:
+        model = Income
+        fields = [
+            'name',
+            'description',
+        ]
+
+
+class CategoryFilterSet(filters.FilterSet):
+    strict = True
+
+    class Meta:
+        model = Category
+        fields = [
+            'name',
+        ]
