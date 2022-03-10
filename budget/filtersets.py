@@ -9,13 +9,19 @@ User = get_user_model()
 
 class BudgetFilterSet(filters.FilterSet):
     strict = True
+    assigned_budgets = filters.NumberFilter(method='get_assigned_budgets')
 
     class Meta:
         model = Budget
         fields = [
             'name',
             'description',
+            'owner',
+            'assigned_budgets'
         ]
+
+    def get_assigned_budgets(self, queryset, name, value):
+        return queryset.filter(users__in=[value])
 
 
 class ExpenseFilterSet(filters.FilterSet):
@@ -27,7 +33,8 @@ class ExpenseFilterSet(filters.FilterSet):
             'name',
             'description',
             'value',
-            'category'
+            'category',
+            'budget'
         ]
 
 
@@ -40,7 +47,8 @@ class IncomeFilterSet(filters.FilterSet):
             'name',
             'description',
             'value',
-            'category'
+            'category',
+            'budget'
         ]
 
 
