@@ -1,21 +1,25 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.utils import timezone
 
 
 class Budget(models.Model):
     name = models.CharField(max_length=120)
     description = models.TextField()
-    users = models.ManyToManyField(User, related_name='budgets',)
+    users = models.ManyToManyField(User, related_name='budgets')
+    owner = models.ForeignKey(User,
+                               related_name='budgets_owner',
+                               null=True, blank=True,
+                               verbose_name='Budget owner',
+                               on_delete=models.SET_NULL)
 
-    def _str_(self):
+    def __str__(self):
         return self.name
 
 
 class Category(models.Model):
     name = models.CharField(max_length=120)
 
-    def _str_(self):
+    def __str__(self):
         return f"{self.name}"
 
 
@@ -37,7 +41,7 @@ class Expense(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
 
-    def _str_(self):
+    def __str__(self):
         return f"{self.name} {self.value}"
 
 
@@ -58,9 +62,5 @@ class Income(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
 
-
-    def _str_(self):
+    def __str__(self):
         return f"{self.name} {self.value}"
-
-
-
