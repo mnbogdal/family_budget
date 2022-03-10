@@ -23,7 +23,7 @@ response = client.get(reverse('{REVERSED_URL}'))
 """
 
 
-class UsersViewSetAPICase(TestCase):
+class BudgetViewSetAPICase(TestCase):
     fixtures = ['users.yaml', 'budget.yaml', 'categories.yaml',
                 'incomes.yaml', 'expenses.yaml']
 
@@ -71,7 +71,6 @@ class UsersViewSetAPICase(TestCase):
         response = client.get('%s?budget=%s' % (reverse('budget:income-list'), 3))
         self.assertEqual(response.data['count'], 1)
 
-
     def test_assigned_budgets_to_user(self):
         client = APIClient()
         admin = User.objects.get(username='admin')
@@ -80,7 +79,6 @@ class UsersViewSetAPICase(TestCase):
         self.assertEqual(response.data['count'], 0)
         response = client.get('%s?assigned_budgets=%s' % (reverse('budget:budget-list'), 2))
         self.assertEqual(response.data['count'], 1)
-
 
     def test_pagination(self):
         client = APIClient()
