@@ -26,6 +26,8 @@ class ExpenseFilterSet(filters.FilterSet):
         fields = [
             'name',
             'description',
+            'value',
+            'category'
         ]
 
 
@@ -37,6 +39,8 @@ class IncomeFilterSet(filters.FilterSet):
         fields = [
             'name',
             'description',
+            'value',
+            'category'
         ]
 
 
