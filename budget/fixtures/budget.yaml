@@ -1,0 +1,24 @@
+- model: budget.budget
+  pk: 1
+  fields:
+    name: b1
+    description: b1
+    owner: 2
+    users:
+    - 4
+- model: budget.budget
+  pk: 2
+  fields:
+    name: b2
+    description: b2
+    owner: 2
+    users:
+    - 2
+- model: budget.budget
+  pk: 3
+  fields:
+    name: b3
+    description: b3
+    owner: 3
+    users:
+    - 3

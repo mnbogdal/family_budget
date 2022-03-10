@@ -1,0 +1,20 @@
+- model: budget.expense
+  pk: 1
+  fields:
+    name: Grocery shopping
+    description: Grocery shopping (food)
+    value: 60
+    budget: 1
+    category: 3
+    date_added: 2022-03-10 10:52:20.580895+00:00
+    date_modified: 2022-03-10 10:52:20.581120+00:00
+- model: budget.expense
+  pk: 2
+  fields:
+    name: Electricity bill
+    description: Electricity bill
+    value: 50
+    budget: 2
+    category: 4
+    date_added: 2022-03-10 10:53:21.365176+00:00
+    date_modified: 2022-03-10 10:53:21.365451+00:00

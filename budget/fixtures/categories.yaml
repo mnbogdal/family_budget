@@ -1,0 +1,16 @@
+- model: budget.category
+  pk: 1
+  fields:
+    name: salary
+- model: budget.category
+  pk: 2
+  fields:
+    name: service
+- model: budget.category
+  pk: 3
+  fields:
+    name: food
+- model: budget.category
+  pk: 4
+  fields:
+    name: bills
