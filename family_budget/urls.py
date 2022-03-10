@@ -22,5 +22,5 @@ users_api_path = path("api/users/", include('users.urls'))
 urlpatterns = [
     path('admin/', admin.site.urls),
     budget_api_path,
-    users_api_path
+    users_api_path,
 ]

@@ -4,7 +4,7 @@ from .views import BudgetView, ExpenseView, IncomeView, CategoryView
 router = DefaultRouter(
     trailing_slash=False,
 )
-
+app_name = "budget"
 router.register(
     'budget/?', BudgetView, basename='budget',
 )
